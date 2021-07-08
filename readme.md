@@ -30,12 +30,20 @@ To train the SOS-Net with shape constraint, pretrain the AutoEncoder first (trai
 ## Citation
 
 @article{gao2021focusnetv2,
+
 title={FocusNetv2: Imbalanced large and small organ segmentation with adversarial shape constraint for head and neck CT images},
+
 author={Gao, Yunhe and Huang, Rui and Yang, Yiwei and Zhang, Jie and Shao, Kainan and Tao, Changjuan and Chen, Yuanyuan and Metaxas, Dimitris N and Li, Hongsheng and Chen, Ming},
+
 journal={Medical Image Analysis},
+
 volume={67},
+
 pages={101831},
+
 year={2021},
+
 publisher={Elsevier}
+
 }
 
