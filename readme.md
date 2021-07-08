@@ -27,9 +27,9 @@ Prepare training dataset using code in data_preprocess.
 
 Training the S-Net using train_backbone.py
 
-For trianing SOL-Net, if you already have a trained S-Net, you can use train_SOL.py to train the localization network. If you don't have a trained S-Net, you can use train_backbone_heatmap.py to train S-Net and SOL-Net jointly.
+For trianing SOL-Net, if a S-Net is already trained, use train_SOL.py to train the localization network. If you don't have a trained S-Net, use train_backbone_heatmap.py to train S-Net and SOL-Net jointly.
 
-To train the SOS-Net with shape constraint, pretrain the AutoEncoder first (training code not included yet). Then use adv_train.py to adversarially update the SOS-Net and the shape AutoEncoder.
+To train the SOS-Net with shape constraint, pretrain the AutoEncoder first (training code not included yet. Just train the AE with reconstruction loss on small organ labels. Prepare data by cropping all labels of small organs with the same size as in SOS-Net, first). Then use adv_train.py to adversarially update the SOS-Net and the shape AutoEncoder.
 
 
 
