@@ -3,6 +3,13 @@ A pytorch implementation of the paper "FocusNetv2: Imbalanced large and small or
 
 ## Introduction
 
+Radiotherapy is a treatment where radiation is used to eliminate cancer cells. The delineation of organs-at-risk (OARs) is a vital step in radiotherapy treatment planning to avoid damage to healthy organs. For nasopharyngeal cancer, more than 20 OARs are needed to be precisely segmented in advance. The challenge of this task lies in complex anatomical structure, low-contrast organ contours, and the extremely imbalanced size between large and small organs. Common segmentation methods that treat them equally would generally lead to inaccurate small-organ labeling. We propose a novel two-stage deep neural network, FocusNetv2, to solve this challenging problem by automatically locating, ROI-pooling, and segmenting small organs with specifically designed small-organ localization and segmentation sub-networks while maintaining the accuracy of large organ segmentation. In addition to our original FocusNet, we employ a novel adversarial shape constraint on small organs to ensure the consistency between estimated small-organ shapes and organ shape prior knowledge. Our proposed framework is extensively tested on both self-collected dataset of 1,164 CT scans and the *MICCAI Head and Neck Auto Segmentation Challenge 2015* dataset, which shows superior performance compared with state-of-the-art head and neck OAR segmentation methods.
+
+<div align=center>
+
+<img src="https://raw.githubusercontent.com/yhygao/focusnet-v2/main/fig/framework.PNG" />
+
+</div>
 
 ## Getting Started
 #### Prerequisites
