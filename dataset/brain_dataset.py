@@ -126,9 +126,9 @@ class BrainDataset(Dataset):
         theta = torch.mm(theta, theta_scale)[0:3, :]
     
         theta = theta.unsqueeze(0)
-        grid = F.affine_grid(theta, img.size(), align_corners=True).cuda()
-        img = F.grid_sample(img, grid, mode='bilinear', padding_mode='border', align_corners=True)
-        label = F.grid_sample(label.float(), grid, mode='nearest', align_corners=True).long()
+        grid = F.affine_grid(theta, img.size()).cuda()
+        img = F.grid_sample(img, grid, mode='bilinear', padding_mode='border')
+        label = F.grid_sample(label.float(), grid, mode='nearest').long()
     
         return img, label
 

@@ -134,8 +134,8 @@ class BrainDataset(Dataset):
 
     def random_zoom_rotate(self, img, label, heatmap):
         scale_z = np.random.random() * 0.2 + 0.9
-        scale_x = np.random.random() * 0.6 + 0.7
-        scale_y = np.random.random() * 0.6 + 0.7
+        scale_x = np.random.random() * 0.2 + 0.9    # 0.6 0.7
+        scale_y = np.random.random() * 0.2 + 0.9
 
 
         theta_scale = torch.tensor([[scale_z, 0, 0, 0],
@@ -163,11 +163,11 @@ class BrainDataset(Dataset):
         theta = torch.mm(theta, theta_scale)[0:3, :]
     
         theta = theta.unsqueeze(0)
-        grid = F.affine_grid(theta, img.size(), align_corners=True).cuda()
-        img = F.grid_sample(img, grid, mode='bilinear', padding_mode='border', align_corners=True)
-        label = F.grid_sample(label.float(), grid, mode='nearest', align_corners=True).long()
+        grid = F.affine_grid(theta, img.size()).cuda()
+        img = F.grid_sample(img, grid, mode='bilinear', padding_mode='border')
+        label = F.grid_sample(label.float(), grid, mode='nearest').long()
         if heatmap is not None:
-            heatmap = F.grid_sample(heatmap, grid, mode='bilinear', align_corners=True).float()
+            heatmap = F.grid_sample(heatmap, grid, mode='bilinear').float()
     
         return img, label, heatmap
 
